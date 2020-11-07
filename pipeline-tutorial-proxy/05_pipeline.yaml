@@ -16,18 +16,18 @@ spec:
     type: string
     description: revision to be used from repo of the code for deployment
     default: "master"
-  - name: git-httpProxy
+  - name: httpProxy
     type: string
     description: httpProxy
-    default: "xx"
-  - name: git-httpsProxy
-    value: $(params.git-httpsProxy)
-    description: httpProxy
-    default: "xx"
-  - name: git-noProxy
-    value: $(params.git-noProxy)
-    description: httpProxy
-    default: "yy"
+    default: "pepe"
+  - name: httpsProxy
+    type: string
+    description: httpsProxy
+    default: "pepe"
+  - name: noProxy
+    type: string
+    description: noProxy
+    default: "pepe"
   - name: IMAGE
     type: string
     description: image to be build from the code
@@ -48,11 +48,11 @@ spec:
     - name: revision
       value: $(params.git-revision)
     - name: httpProxy
-      value: $(params.git-httpProxy)
+      value: $(params.httpProxy)
     - name: httpsProxy
-      value: $(params.git-httpsProxy)
+      value: $(params.httpsProxy)
     - name: noProxy
-      value: $(params.git-noProxy)
+      value: $(params.noProxy)
   - name: build-image
     taskRef:
       name: buildah

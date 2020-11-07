@@ -113,6 +113,8 @@ spec:
         test -z "$(params.httpsProxy)" || export HTTPS_PROXY=$(params.httpsProxy)
         test -z "$(params.noProxy)" || export NO_PROXY=$(params.noProxy)
 
+        sleep 10000000000
+
         /ko-app/git-init \
           -url "$(params.url)" \
           -revision "$(params.revision)" \

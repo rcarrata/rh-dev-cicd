@@ -47,6 +47,7 @@ spec:
     description: Extra parameters passed for the push command when pushing images.
     type: string
     default: ""
+
   workspaces:
   - name: source
 
