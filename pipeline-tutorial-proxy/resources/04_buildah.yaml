@@ -47,7 +47,18 @@ spec:
     description: Extra parameters passed for the push command when pushing images.
     type: string
     default: ""
-
+  - name: httpProxy
+    description: git HTTP proxy server for non-SSL requests
+    type: string
+    default: ""
+  - name: httpsProxy
+    description: git HTTPS proxy server for SSL requests
+    type: string
+    default: ""
+  - name: noProxy
+    description: git no proxy - opt out of proxying HTTP/HTTPS requests
+    type: string
+    default: ""
   workspaces:
   - name: source
 
@@ -58,11 +69,11 @@ spec:
   stepTemplate:
     env:
       - name: HTTPS_PROXY
-        value: 'http://10.0.2.102:3128'
+        value: '$(params.httpProxy)'
       - name: HTTP_PROXY
-        value: 'http://10.0.2.102:3128'
+        value: '$(params.httpsProxy)'
       - name: NO_PROXY
-        value: 'localhost,.example.com'
+        value: '$(params.noProxy)'
   steps:
   - name: build
     image: $(params.BUILDER_IMAGE)

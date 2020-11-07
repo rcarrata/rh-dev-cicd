@@ -61,24 +61,17 @@ spec:
       value: "false"
     - name: IMAGE
       value: $(params.IMAGE)
+    - name: httpProxy
+      value: $(params.httpProxy)
+    - name: httpsProxy
+      value: $(params.httpsProxy)
+    - name: noProxy
+      value: $(params.noProxy)
     workspaces:
     - name: source
       workspace: shared-workspace
     runAfter:
     - fetch-repository
-  # - name: push-image
-  #   taskRef:
-  #     name: buildah-push
-  #   params:
-  #   - name: TLSVERIFY
-  #     value: "false"
-  #   - name: IMAGE
-  #     value: $(params.IMAGE)
-  #   workspaces:
-  #   - name: source
-  #     workspace: shared-workspace
-  #   runAfter:
-  #   - build-image
   - name: apply-manifests
     taskRef:
       name: apply-manifests
