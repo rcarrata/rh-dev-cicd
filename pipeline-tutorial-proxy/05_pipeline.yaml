@@ -18,15 +18,15 @@ spec:
     default: "master"
   - name: httpProxy
     type: string
-    description: httpProxy
+    description: httpProxy to use in our pipelines
     default: "pepe"
   - name: httpsProxy
     type: string
-    description: httpsProxy
+    description: httpsProxy to use in our pipelines
     default: "pepe"
   - name: noProxy
     type: string
-    description: noProxy
+    description: httpsProxy to use in our pipelines
     default: "pepe"
   - name: IMAGE
     type: string
@@ -56,7 +56,6 @@ spec:
   - name: build-image
     taskRef:
       name: buildah
-      kind: ClusterTask
     params:
     - name: TLSVERIFY
       value: "false"
