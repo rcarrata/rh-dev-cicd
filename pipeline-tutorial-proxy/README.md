@@ -88,11 +88,35 @@ build-and-deploy   3 minutes ago   ---        ---       ---        ---
 ```
 
 
+## Trigger Pipeline
 
+A PipelineRun is how you can start a pipeline and tie it to the persistentVolumeClaim and params that should be used for this specific invocation.
 
+```
+$ oc apply -f pipelinerun/01_build_deploy_api_pipelinerun.yaml
+```
 
+```
+$ oc apply -f pipelinerun/02_build_deploy_ui_pipelinerun.yaml
+```
 
-tkn pr ls
+```
+ tkn pipeline ls
+NAME               AGE          LAST RUN                       STARTED          DURATION   STATUS
+build-and-deploy   1 hour ago   build-deploy-api-pipelinerun   2 minutes ago   1 minute   Succeeded
+```
+
+```
+$ tkn pr ls
 NAME                          STARTED         DURATION   STATUS
 build-deploy-ui-pipelinerun   6 seconds ago   ---        Running
 build-and-deploy-0mgs0g       4 minutes ago   1 minute   Succeeded
+```
+
+After a few minutes, the pipeline should finish successfully.
+
+You can get the route of the application by executing the following command and access the application
+
+```
+$ oc get route vote-ui --template='http://{{.spec.host}}'
+```
