@@ -12,6 +12,12 @@ spec:
     value: http://github.com/openshift-pipelines/vote-ui.git
   - name: IMAGE
     value: image-registry.openshift-image-registry.svc:5000/pipelines-tutorial/vote-ui
+  - name: httpProxy
+    value: http://10.0.2.102:3128
+  - name: httpsProxy
+    value: http://10.0.2.102:3128    
+  - name: noProxy
+    value: localhost
   workspaces:
   - name: shared-workspace
     volumeClaimTemplate:

@@ -19,15 +19,15 @@ spec:
   - name: httpProxy
     type: string
     description: httpProxy to use in our pipelines
-    default: "pepe"
+    default: "http://localhost"
   - name: httpsProxy
     type: string
     description: httpsProxy to use in our pipelines
-    default: "pepe"
+    default: "http://localhost"
   - name: noProxy
     type: string
     description: httpsProxy to use in our pipelines
-    default: "pepe"
+    default: "localhost"
   - name: IMAGE
     type: string
     description: image to be build from the code

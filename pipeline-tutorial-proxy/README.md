@@ -14,6 +14,8 @@ Create a project for the sample application that you will be using in this demo:
 $ oc new-project pipelines-tutorial
 ```
 
+NOTE: Be careful with your LimitRanges because the pods of the Tasks needed at least 1G per container in several steps (build mainly).
+
 OpenShift Pipelines automatically adds and configures a ServiceAccount named pipeline that has sufficient permissions to build and push an image. This service account will be used later:
 
 ```
@@ -77,10 +79,20 @@ Create the pipeline by running the following:
 oc apply -f resources/06_pipeline.yaml
 ```
 
+Check the list of pipelines you have created using the CLI:
+
 ```
 $ tkn pipeline ls
 NAME               AGE             LAST RUN   STARTED   DURATION   STATUS
 build-and-deploy   3 minutes ago   ---        ---       ---        ---
 ```
 
-Check the list of pipelines you have created using the CLI:
+
+
+
+
+
+tkn pr ls
+NAME                          STARTED         DURATION   STATUS
+build-deploy-ui-pipelinerun   6 seconds ago   ---        Running
+build-and-deploy-0mgs0g       4 minutes ago   1 minute   Succeeded
