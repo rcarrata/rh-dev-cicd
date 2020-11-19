@@ -90,3 +90,4 @@ spec:
       value: $(params.IMAGE)
     runAfter:
     - apply-manifests
+

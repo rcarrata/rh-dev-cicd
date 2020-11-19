@@ -65,7 +65,7 @@ spec:
   results:
   - name: IMAGE_DIGEST
     description: Digest of the image just built.
-    
+
   stepTemplate:
     env:
       - name: HTTPS_PROXY
@@ -113,3 +113,4 @@ spec:
   volumes:
   - name: varlibcontainers
     emptyDir: {}
+
